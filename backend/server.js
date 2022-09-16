@@ -1,7 +1,6 @@
 const express = require("express");
-const colors = require("colors");
-const { use } = require("./routes/userRoutes");
-const dotenv = require("dotenv").config();
+require("colors");
+require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
 const PORT = process.env.PORT || 5000; // http://localhoste:5000
@@ -22,7 +21,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/api/users", require("./routes/userRoutes")); // use(endPoint, źródło pliku )
-
+app.use("/api/tickets", require("./routes/ticketRoutes"));
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

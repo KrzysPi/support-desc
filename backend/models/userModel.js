@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// tworzymy schemat modelu User
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -27,4 +26,4 @@ const userSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("User", userSchema); // tworzymy model User na postawie powyższego schematu
+module.exports = mongoose.model("User", userSchema);

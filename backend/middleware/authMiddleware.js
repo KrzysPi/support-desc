@@ -11,7 +11,7 @@ const protect = asyncHandler(async (req, res, next) => {
   ) {
     try {
       // Get token from header
-      token = req.headers.authorization.split(" ")[1]; //zamieniamy na arr i bieżemy token (barrer token)
+      token = req.headers.authorization.split(" ")[1]; //otrzymane dane ("barrer token") zamieniamy na arr i bieżemy token
       // Verify token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       // Get user from token
@@ -22,7 +22,7 @@ const protect = asyncHandler(async (req, res, next) => {
         throw new Error("Not authirised");
       }
 
-      next();
+      next(); //przechdzi dlaej z egzekucją kodu w middleware
     } catch (error) {
       console.log(error);
       res.status(401);
