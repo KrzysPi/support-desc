@@ -6,7 +6,7 @@ const Ticket = require("../models/ticketModel");
 // @route   GET /api/tickets
 // @access  Private
 const getTickets = asyncHandler(async (req, res) => {
-  //   res.status(200).json({ message: "getTickets" });
+
   const tickets = await Ticket.find({ user: req.user.id });
   res.status(200).json(tickets);
 });
@@ -21,7 +21,7 @@ const getTicket = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Ticket not found");
   }
-  // Sprawdzamy czy user jest autoryzowany
+
   if (ticket.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("Not Authorized");
@@ -34,7 +34,7 @@ const getTicket = asyncHandler(async (req, res) => {
 // @route   POST /api/tickets
 // @access  Private
 const createTicket = asyncHandler(async (req, res) => {
-  //   res.status(200).json({ message: "createTicket" });
+
   const { product, description } = req.body;
 
   if (!product || !description) {

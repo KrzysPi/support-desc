@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NewTicket from "./pages/NewTicket";
+import Tickets from "./pages/Tickets";
+import Ticket from "./pages/Ticket";
 
 function App() {
   return (
@@ -26,7 +28,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-            {/* <Route
+            <Route
               path="/tickets"
               element={
                 <PrivateRoute>
@@ -41,7 +43,7 @@ function App() {
                   <Ticket />
                 </PrivateRoute>
               }
-            /> */}
+            />
           </Routes>
         </div>
       </Router>
